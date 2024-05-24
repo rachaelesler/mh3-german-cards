@@ -44,10 +44,10 @@ def get_recent_cards(set_code, lang, count):
     
     return cards[:count]
 
-def write_to_csv(cards):
+def write_to_csv(cards, delimiter="^"):
     with open('./recent_cards.csv', 'w', newline='', encoding='utf-8') as csv_file:
         field_names = ["Deutsch","English","Typeline","Oracle"]
-        writer = csv.DictWriter(csv_file, fieldnames=field_names, delimiter='^')
+        writer = csv.DictWriter(csv_file, fieldnames=field_names, delimiter=delimiter)
         
         writer.writeheader()
         for card in cards:
